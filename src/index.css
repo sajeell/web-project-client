@@ -1,6 +1,13 @@
+* {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, lato, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "lato", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, lato, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
