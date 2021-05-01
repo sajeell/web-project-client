@@ -4,6 +4,7 @@ import "./SignIn.scss"
 import FormBG from "../../static/images/form-bg.png"
 
 export default function SignIn() {
+    document.title = "Sign In"
     return (
         <div className="signin-wrapper">
             <div className="signin-bg-image">

@@ -4,6 +4,7 @@ import "./SignUp.scss"
 import FormBG from "../../static/images/form-bg.png"
 
 export default function SignUp() {
+    document.title = "Sign Up"
     return (
         <div className="signup-wrapper">
             <div className="signup-bg-image">
@@ -11,7 +12,7 @@ export default function SignUp() {
             </div>
             <div className="signup-form">
                 <form>
-                    <div className="signup-row-1"> 
+                    <div className="signup-row-1">
                         <span>Sign Up</span>
                     </div>
                     <div className="signup-row-2">
