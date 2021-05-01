@@ -56,7 +56,37 @@ $dark-color: #405e87;
 }
 
 .header-wrapper {
+  display: flex;
+  position: relative;
+  flex-direction: column;
   .header {
     @include header();
+  }
+
+  .header-menu {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.16);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-right: 10px;
+    color: $dark-color;
+    .header-menu-item {
+      user-select: none;
+      letter-spacing: 2px;
+
+      &:hover {
+        font-weight: bolder;
+      }
+      &:first-child {
+        margin-bottom: 15px;
+      }
+      &:last-child {
+        margin-top: 15px;
+      }
+    }
   }
 }

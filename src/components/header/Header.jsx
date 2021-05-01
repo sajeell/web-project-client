@@ -1,19 +1,70 @@
+import { useState } from "react"
 import "./Header.scss"
 
 export default function Header() {
+    const [isMobile, setIsMobile] = useState(false)
+
     document.title = "Dashboard"
-    return (
-        <div className="header-wrapper">
-            <div className="header">
-                <div className="header-title">
-                    <span>EVALY</span>
+
+    const handeIsMobile = (e) => {
+        e.preventDefault()
+        setIsMobile(!isMobile)
+    }
+
+    if (window.innerWidth < 960) {
+        if (!isMobile) {
+            return (
+                <div className="header-wrapper">
+                    <div className="header">
+                        <div className="header-title">
+                            <span>EVALY</span>
+                        </div>
+                        <ul className="header-items">
+                            <li className="header-item" onClick={handeIsMobile}>᎒</li>
+                        </ul>
+                    </div>
                 </div>
-                <ul className="header-items">
-                    <li className="header-item">RESULT</li>
-                    <li className="header-item">HELP</li>
-                    <li className="header-item">LOGOUT</li>
-                </ul>
+            )
+        } else {
+            return (
+                <div className="header-wrapper">
+                    <div className="header">
+                        <div className="header-title">
+                            <span>EVALY</span>
+                        </div>
+                        <ul className="header-items">
+                            <li className="header-item" onClick={handeIsMobile}>᎒</li>
+                        </ul>
+                    </div>
+                    <div className="header-menu">
+                        <div className="header-menu-item">
+                            <span>RESULT</span>
+                        </div>
+                        <div className="header-menu-item">
+                            <span>HELP</span>
+                        </div>
+                        <div className="header-menu-item">
+                            <span>LOG OUT</span>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+    }
+    else {
+        return (
+            <div className="header-wrapper">
+                <div className="header">
+                    <div className="header-title">
+                        <span>EVALY</span>
+                    </div>
+                    <ul className="header-items">
+                        <li className="header-item">RESULT</li>
+                        <li className="header-item">HELP</li>
+                        <li className="header-item">LOGOUT</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
