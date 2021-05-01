@@ -1,6 +1,7 @@
 import "./Header.scss"
 
 export default function Header() {
+    document.title = "Dashboard"
     return (
         <div className="dashboard-wrapper">
             <div className="header">
