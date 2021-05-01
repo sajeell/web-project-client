@@ -1,0 +1,75 @@
+$light-color: #f2f6ff;
+$dark-color: #405e87;
+
+@mixin dashboard {
+  color: $dark-color;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  letter-spacing: 2px;
+
+  .breadcrumb {
+    margin-top: 20px;
+    align-self: flex-start;
+    font-size: 13px;
+  }
+
+  .dashboard-welcome {
+    margin-top: 5px;
+    .dashboard-welcome-item {
+      &:last-child {
+        font-weight: bold;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .dashboard-exams {
+    .dashboard-exams-heading {
+      margin-top: 20px;
+      span {
+        font-size: 15px;
+        font-weight: bold;
+      }
+    }
+
+    .dashboard-exams-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      .dashboard-exam-box {
+        flex: 0 0 30%;
+        margin: 25px;
+        user-select: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        width: 220px;
+        max-width: 220px;
+        min-width: 220px;
+        font-size: 13px;
+        background-color: $light-color;
+        padding: 25px;
+        border-radius: 25px;
+        box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.16);
+        .dashboard-exam-box-item {
+          &:first-child {
+            margin-bottom: 10px;
+            span {
+              font-weight: bold;
+            }
+          }
+
+          &:last-child {
+            font-weight: bold;
+            margin-top: 20px;
+            align-self: flex-end;
+          }
+        }
+      }
+    }
+  }
+}
+
+.dashboard-wrapper {
+  @include dashboard();
+}
