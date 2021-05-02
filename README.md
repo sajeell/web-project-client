@@ -23,3 +23,7 @@ Suppose that I have to change the content of the footer. I will be doing it in t
 1. I will go to the `src` folder, as I have to change the code.
 2. In the `src` folder, I will go to the `components` folder, as footer is a custom built JSX component.
 3. I will go to the `footer` folder, then I will open the `Footer.jsx` file if I have to change the logic or HTML code and the `Footer.css` file if I have to change the CSS of the footer
+
+# Format
+
+run `prettier --write --single-quote --list-different --print-width 80 "src/**/*.jsx"`

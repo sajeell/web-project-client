@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 import './App.css';
+import CourseDetails from "./components/courseDetails/CourseDetails";
 import Dashboard from "./components/dashboard/Dashboard";
 import Header from "./components/header/Header";
 
@@ -17,6 +18,10 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignUp />
+          </Route>
+          <Route path="/course-details">
+            <Header />
+            <CourseDetails />
           </Route>
           <Route exact path="/">
             <Header />

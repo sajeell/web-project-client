@@ -8,10 +8,15 @@ $dark-color: #405e87;
   margin-left: 30px;
   letter-spacing: 2px;
 
+  a {
+    text-decoration: inherit;
+    color: inherit;
+  }
+
   .breadcrumb {
     margin-top: 20px;
     align-self: flex-start;
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .dashboard-welcome {
