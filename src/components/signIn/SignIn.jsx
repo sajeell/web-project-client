@@ -47,9 +47,12 @@ export default function SignIn() {
             <span className='signin-row-5-item'>
               Don't have an account yet?
             </span>
-            <Link to='/signup'>
-              <span className='signin-row-5-item'>Sign Up</span>
-            </Link>
+
+            <span className='signin-row-5-item'>
+              <Link to='/signup'>
+                Sign Up
+              </Link>
+            </span>
             <span className='signin-row-5-item'>here</span>
           </div>
         </form>

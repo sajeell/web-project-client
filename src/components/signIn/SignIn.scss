@@ -1,5 +1,7 @@
 $form-background-color: #d0ddfb;
 $form-box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.12);
+$light-color: #f2f6ff;
+$dark-color: #405e87;
 
 .signin-wrapper {
   display: flex;
@@ -25,7 +27,7 @@ $form-box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.12);
   .signin-form {
     z-index: 100;
     position: absolute;
-    background-color: white;
+    background-color: $light-color;
     width: 350px;
     height: 350px;
     border-radius: 15px;
@@ -41,7 +43,7 @@ $form-box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.12);
         span {
           font-weight: bold;
           font-size: 16px;
-          color: #405e87;
+          color: $dark-color;
         }
       }
 
@@ -51,15 +53,15 @@ $form-box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.12);
         input {
           padding: 10px;
           width: 200px;
-          border: 1px solid #9fc4f3;
-          color: #405e87;
+          border: 1px solid $light-color;
+          color: $dark-color;
 
           &:focus {
             outline: none;
           }
 
           &::placeholder {
-            color: #405e87;
+            color: $dark-color;
           }
         }
       }
@@ -68,14 +70,14 @@ $form-box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.12);
         input {
           padding: 10px;
           width: 200px;
-          border: 1px solid #9fc4f3;
-          color: #405e87;
+          border: 1px solid $light-color;
+          color: $dark-color;
           &:focus {
             outline: none;
           }
 
           &::placeholder {
-            color: #405e87;
+            color: $dark-color;
           }
         }
       }
@@ -85,8 +87,8 @@ $form-box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.12);
         margin-bottom: 25px;
         input {
           cursor: pointer;
-          background-color: #267fff;
-          border: 1px solid #267fff !important;
+          background-color: $dark-color;
+          border: 1px solid $dark-color;
           max-height: 100%;
           max-width: 100%;
           padding: 10px;
@@ -95,21 +97,21 @@ $form-box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.12);
 
           &:hover {
             color: #267fff;
-            border: 1px solid #267fff;
-            background-color: white;
+            border: 1px solid $dark-color;
+            background-color: $light-color;
           }
 
           &:active {
-            color: white;
-            border: 1px solid #267fff;
-            background-color: #267fff;
+            color: $light-color;
+            border: 1px solid $dark-color;
+            background-color: $dark-color;
           }
         }
       }
 
       .signin-row-5 {
         display: flex;
-        color: #405e87;
+        color: $dark-color;
         font-size: 12px;
         .signin-row-5-item {
           &:nth-child(2) {
