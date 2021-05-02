@@ -1,0 +1,224 @@
+$light-color: #f2f6ff;
+$dark-color: #405e87;
+
+.payment-wrapper {
+  color: $dark-color;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 30px;
+  letter-spacing: 2px;
+
+  .breadcrumb {
+    margin-top: 20px;
+    align-self: flex-start;
+    font-size: 12px;
+    a {
+      color: inherit;
+      text-decoration: inherit;
+    }
+
+    .breadcrumb-item {
+      cursor: pointer;
+      &:first-child {
+        margin-right: 2px;
+      }
+      &:last-child {
+        margin-left: 2px;
+      }
+      &:hover {
+        font-weight: bolder;
+      }
+    }
+  }
+
+  .payment-title {
+    margin-top: 20px;
+  }
+
+  .payment-heading {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 13px;
+  }
+
+  .border-div {
+    width: 300px;
+    padding-top: 12px;
+    border-bottom: 1px solid $dark-color;
+  }
+
+  .payment-personal-details {
+    .payment-input-row {
+      display: flex;
+      flex-direction: column;
+      .payment-input-title {
+        font-size: 11px;
+        margin-top: 10px;
+      }
+      .payment-input {
+        margin-top: 10px;
+        input {
+          padding: 8px;
+          width: 350px;
+          border: 1px solid $dark-color;
+          color: $dark-color;
+
+          &:focus {
+            outline: none;
+          }
+
+          &::placeholder {
+            color: $dark-color;
+          }
+        }
+      }
+    }
+  }
+
+  .payment-left {
+    flex: 1 0 50%;
+  }
+
+  .payment-method {
+    margin-top: 10px;
+    .payment-method-row {
+      display: flex;
+      align-items: flex-start;
+      .payment-method-row-left {
+        margin-right: 15px;
+      }
+      .payment-method-row-right {
+        display: flex;
+        flex-direction: column;
+        .payment-method-row-right-title {
+          span {
+            font-weight: bolder;
+            font-size: 13px;
+          }
+        }
+        .payment-method-row-right-description {
+          font-size: 12px;
+          max-width: 350px;
+        }
+      }
+
+      &:first-child {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .payment-right {
+    flex: 1 0 50%;
+
+    .payment-input-row {
+      display: flex;
+      flex-direction: column;
+      .payment-input-title {
+        font-size: 11px;
+        margin-top: 10px;
+      }
+      .payment-input {
+        margin-top: 10px;
+        input {
+          padding: 8px;
+          width: 350px;
+          border: 1px solid $dark-color;
+          color: $dark-color;
+
+          &:focus {
+            outline: none;
+          }
+
+          &::placeholder {
+            color: $dark-color;
+          }
+        }
+      }
+    }
+
+    .payment-input-row-short-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 420px;
+
+      .payment-input-row-short {
+        flex: 1 0 50%;
+        .payment-input-title {
+          font-size: 11px;
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+        .payment-input {
+          input {
+            width: 120px !important;
+            padding: 8px;
+            border: 1px solid $dark-color;
+            color: $dark-color;
+
+            &:focus {
+              outline: none;
+            }
+
+            &::placeholder {
+              color: $dark-color;
+            }
+          }
+        }
+      }
+    }
+
+    .payment-button {
+      margin-top: 20px;
+      input {
+        cursor: pointer;
+        background-color: $dark-color;
+        border: 1px solid $dark-color;
+        max-height: 100%;
+        max-width: 100%;
+        padding: 10px;
+        width: 370px;
+        color: white;
+
+        &:hover {
+          color: #267fff;
+          border: 1px solid $dark-color;
+          background-color: $light-color;
+        }
+
+        &:active {
+          color: $light-color;
+          border: 1px solid $dark-color;
+          background-color: $dark-color;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .payment-input {
+    input {
+      width: 300px !important;
+    }
+  }
+  .payment-method-row-right-description {
+    width: 320px !important;
+  }
+
+  .payment-right {
+    .payment-input-row-short-wrapper {
+      .payment-input-row-short {
+        .payment-input {
+          width: 120px !important;
+        }
+      }
+    }
+  }
+  .payment-button {
+    input {
+      width: 320px !important;
+    }
+  }
+}

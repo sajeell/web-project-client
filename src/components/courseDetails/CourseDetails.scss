@@ -7,16 +7,15 @@ $dark-color: #405e87;
   flex-direction: column;
   margin-left: 30px;
   letter-spacing: 2px;
-
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+  
   .breadcrumb {
     margin-top: 20px;
     align-self: flex-start;
     font-size: 12px;
-
-    a {
-      color: inherit;
-      text-decoration: inherit;
-    }
 
     .breadcrumb-item {
       cursor: pointer;

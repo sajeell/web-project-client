@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
 import './Dashboard.scss';
 
 export default function Dashboard() {
@@ -17,7 +17,7 @@ export default function Dashboard() {
           <span>Trending Exams</span>
         </div>
         <div className='dashboard-exams-boxes'>
-          <Link to="/course-details">
+          <Link to='/course-details'>
             <div className='dashboard-exam-box'>
               <div className='dashboard-exam-box-item'>
                 <span>Data Structures & Algorithm</span>

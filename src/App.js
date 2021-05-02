@@ -4,6 +4,7 @@ import './App.css';
 import CourseDetails from "./components/courseDetails/CourseDetails";
 import Dashboard from "./components/dashboard/Dashboard";
 import Header from "./components/header/Header";
+import Payment from "./components/payment/Payment";
 
 import SignIn from "./components/signIn/SignIn";
 import SignUp from "./components/signUp/SignUp";
@@ -22,6 +23,10 @@ function App() {
           <Route path="/course-details">
             <Header />
             <CourseDetails />
+          </Route>
+          <Route path="/payment">
+            <Header />
+            <Payment />
           </Route>
           <Route exact path="/">
             <Header />

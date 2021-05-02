@@ -49,9 +49,7 @@ export default function SignIn() {
             </span>
 
             <span className='signin-row-5-item'>
-              <Link to='/signup'>
-                Sign Up
-              </Link>
+              <Link to='/signup'>Sign Up</Link>
             </span>
             <span className='signin-row-5-item'>here</span>
           </div>

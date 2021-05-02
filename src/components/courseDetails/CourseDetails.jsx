@@ -55,11 +55,16 @@ export default function CourseDetails() {
           <div className='course-footage-row'>EXAMINER</div>
           <div className='course-footage-row'>
             <video width='300' height='200' controls>
-              <source src='https://www.w3schools.com/html/mov_bbb.mp4' type='video/mp4'></source>
+              <source
+                src='https://www.w3schools.com/html/mov_bbb.mp4'
+                type='video/mp4'
+              ></source>
               Your browser does not support the video tag.
             </video>
           </div>
-          <div className='course-footage-row'>PAY NOW</div>
+          <Link to="/payment">
+            <div className='course-footage-row'>PAY NOW</div>
+          </Link>
         </div>
       </div>
     </div>

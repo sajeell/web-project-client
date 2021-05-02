@@ -19,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "format": "prettier --write --single-quote --list-different --print-width 80 'src/**/*.jsx'"
+    "format": "prettier --write --single-quote --list-different --print-width 80 src/**/*.jsx"
   },
   "eslintConfig": {
     "extends": [
