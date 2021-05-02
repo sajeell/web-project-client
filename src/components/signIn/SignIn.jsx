@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
 import "./SignIn.scss"
 
 import FormBG from "../../static/images/form-bg.png"
@@ -23,12 +23,16 @@ export default function SignIn() {
                     </div>
 
                     <div className="signin-row-4">
-                        <input type="submit" name="submit-btn" id="submit-btn" value="Sign In" />
+                        <Link to="/">
+                            <input type="submit" name="submit-btn" id="submit-btn" value="Sign In"/>
+                        </Link>
                     </div>
 
                     <div className="signin-row-5">
                         <span className="signin-row-5-item">Don't have an account yet?</span>
-                        <span className="signin-row-5-item">Sign Up</span>
+                        <Link to="/signup">
+                            <span className="signin-row-5-item">Sign Up</span>
+                        </Link>
                         <span className="signin-row-5-item">here</span>
                     </div>
                 </form>

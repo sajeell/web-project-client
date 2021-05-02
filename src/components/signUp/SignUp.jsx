@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
 import "./SignUp.scss"
 
 import FormBG from "../../static/images/form-bg.png"
@@ -32,7 +32,9 @@ export default function SignUp() {
                     </div>
                     <div className="signup-row-7">
                         <span className="signup-row-7-item">Already have an account?</span>
-                        <span className="signup-row-7-item">Sign In</span>
+                        <Link to="/signin">
+                            <span className="signup-row-7-item">Sign In</span>
+                        </Link>
                         <span className="signup-row-7-item">here</span>
                     </div>
                 </form>

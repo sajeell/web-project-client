@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import "./Header.scss"
 
 export default function Header() {
@@ -44,7 +45,9 @@ export default function Header() {
                             <span>HELP</span>
                         </div>
                         <div className="header-menu-item">
-                            <span>LOG OUT</span>
+                            <Link to="/signin">
+                                <span>LOG OUT</span>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -61,7 +64,9 @@ export default function Header() {
                     <ul className="header-items">
                         <li className="header-item">RESULT</li>
                         <li className="header-item">HELP</li>
-                        <li className="header-item">LOGOUT</li>
+                        <Link to="/signin">
+                            <li className="header-item">LOGOUT</li>
+                        </Link>
                     </ul>
                 </div>
             </div>
