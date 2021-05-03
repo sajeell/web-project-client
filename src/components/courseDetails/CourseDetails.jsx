@@ -62,7 +62,7 @@ export default function CourseDetails() {
               Your browser does not support the video tag.
             </video>
           </div>
-          <Link to="/payment">
+          <Link to='/payment'>
             <div className='course-footage-row'>PAY NOW</div>
           </Link>
         </div>

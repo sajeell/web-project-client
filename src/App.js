@@ -5,6 +5,7 @@ import CourseDetails from "./components/courseDetails/CourseDetails";
 import Dashboard from "./components/dashboard/Dashboard";
 import Header from "./components/header/Header";
 import Payment from "./components/payment/Payment";
+import NormalQuiz from "./components/questionnaire/normalQuiz/NormalQuiz";
 
 import SignIn from "./components/signIn/SignIn";
 import SignUp from "./components/signUp/SignUp";
@@ -27,6 +28,9 @@ function App() {
           <Route path="/payment">
             <Header />
             <Payment />
+          </Route>
+          <Route path="/normal-quiz">
+            <NormalQuiz />
           </Route>
           <Route exact path="/">
             <Header />
