@@ -26,4 +26,4 @@ Suppose that I have to change the content of the footer. I will be doing it in t
 
 # Format
 
-run `prettier --write --single-quote --list-different --print-width 80 "src/**/*.jsx"`
+run `prettier --write --single-quote --semi false --list-different --print-width 80 "src/**/*.jsx"`
