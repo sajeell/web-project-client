@@ -105,3 +105,10 @@ $dark-color: #405e87;
     }
   }
 }
+
+@media screen and (max-width: 960px) {
+  .normal-quiz-answer {
+    margin-left: 13px;
+    margin-right: 13px;
+  }
+}
