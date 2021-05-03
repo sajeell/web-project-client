@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom';
-import './SignUp.scss';
+import { Link } from 'react-router-dom'
+import './SignUp.scss'
 
-import FormBG from '../../static/images/form-bg.png';
+import FormBG from '../../static/images/form-bg.png'
 
 export default function SignUp() {
-  document.title = 'Sign Up';
+  document.title = 'Sign Up'
   return (
     <div className='signup-wrapper'>
       <div className='signup-bg-image'>
@@ -60,5 +60,5 @@ export default function SignUp() {
         </form>
       </div>
     </div>
-  );
+  )
 }

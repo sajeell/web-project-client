@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import './Dashboard.scss';
+import { Link } from 'react-router-dom'
+import './Dashboard.scss'
 
 export default function Dashboard() {
   return (
@@ -77,5 +77,5 @@ export default function Dashboard() {
         </div>
       </div>
     </div>
-  );
+  )
 }

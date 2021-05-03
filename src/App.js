@@ -1,11 +1,13 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 import './App.css';
+import Certificate from "./components/certificate/Certificate";
 import CourseDetails from "./components/courseDetails/CourseDetails";
 import Dashboard from "./components/dashboard/Dashboard";
 import Header from "./components/header/Header";
 import Payment from "./components/payment/Payment";
 import NormalQuiz from "./components/questionnaire/normalQuiz/NormalQuiz";
+import Result from "./components/result/Result";
 
 import SignIn from "./components/signIn/SignIn";
 import SignUp from "./components/signUp/SignUp";
@@ -31,6 +33,13 @@ function App() {
           </Route>
           <Route path="/normal-quiz">
             <NormalQuiz />
+          </Route>
+          <Route path="/result">
+            <Header />
+            <Result />
+          </Route>
+          <Route path="/certificate">
+            <Certificate />
           </Route>
           <Route exact path="/">
             <Header />

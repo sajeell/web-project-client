@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './Header.scss';
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import './Header.scss'
 
 export default function Header() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false)
 
-  document.title = 'Dashboard';
+  document.title = 'Dashboard'
 
   const handeIsMobile = (e) => {
-    e.preventDefault();
-    setIsMobile(!isMobile);
-  };
+    e.preventDefault()
+    setIsMobile(!isMobile)
+  }
 
   if (window.innerWidth < 960) {
     if (!isMobile) {
@@ -29,7 +29,7 @@ export default function Header() {
             </ul>
           </div>
         </div>
-      );
+      )
     } else {
       return (
         <div className='header-wrapper'>
@@ -46,9 +46,11 @@ export default function Header() {
             </ul>
           </div>
           <div className='header-menu'>
-            <div className='header-menu-item'>
-              <span>RESULT</span>
-            </div>
+            <Link to='/result'>
+              <div className='header-menu-item'>
+                <span>RESULT</span>
+              </div>
+            </Link>
             <div className='header-menu-item'>
               <span>HELP</span>
             </div>
@@ -59,7 +61,7 @@ export default function Header() {
             </div>
           </div>
         </div>
-      );
+      )
     }
   } else {
     return (
@@ -71,7 +73,9 @@ export default function Header() {
             </div>
           </Link>
           <ul className='header-items'>
-            <li className='header-item'>RESULT</li>
+            <Link to='/result'>
+              <li className='header-item'>RESULT</li>
+            </Link>
             <li className='header-item'>HELP</li>
             <Link to='/signin'>
               <li className='header-item'>LOGOUT</li>
@@ -79,6 +83,6 @@ export default function Header() {
           </ul>
         </div>
       </div>
-    );
+    )
   }
 }

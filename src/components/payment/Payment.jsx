@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import './Payment.scss';
+import { Link } from 'react-router-dom'
+import './Payment.scss'
 
 export default function Payment() {
   return (
@@ -103,11 +103,11 @@ export default function Payment() {
           </div>
         </div>
         <div className='payment-button'>
-          <Link to="/normal-quiz">
+          <Link to='/normal-quiz'>
             <input type='submit' value='PAY NOW' />
           </Link>
         </div>
       </div>
     </div>
-  );
+  )
 }

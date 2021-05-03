@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import './CourseDetails.scss';
+import { Link } from 'react-router-dom'
+import './CourseDetails.scss'
 
 export default function CourseDetails() {
   return (
@@ -68,5 +68,5 @@ export default function CourseDetails() {
         </div>
       </div>
     </div>
-  );
+  )
 }

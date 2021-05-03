@@ -1,0 +1,94 @@
+$light-color: #f2f6ff;
+$dark-color: #405e87;
+
+@mixin breadcrumb {
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  .breadcrumb {
+    margin-top: 20px;
+    align-self: flex-start;
+    font-size: 12px;
+
+    .breadcrumb-item {
+      cursor: pointer;
+      &:first-child {
+        margin-right: 2px;
+      }
+      &:last-child {
+        margin-left: 2px;
+      }
+      &:hover {
+        font-weight: bolder;
+      }
+    }
+  }
+}
+
+@mixin heading {
+  margin-top: 20px;
+  span {
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+.result-wrapper {
+  @include breadcrumb();
+  color: $dark-color;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  letter-spacing: 2px;
+
+  .result-content {
+    display: flex;
+    flex-direction: column;
+    .result-heading {
+      @include heading();
+    }
+
+    .result-table {
+      margin-top: 20px;
+      th,
+      td {
+        text-align: center;
+        border: 1px solid $dark-color;
+        padding: 5px;
+      }
+
+      th {
+        font-size: 13px;
+      }
+
+      td {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 12px;
+      }
+
+      #certificate-btn {
+        user-select: none;
+        cursor: pointer;
+        &:hover {
+          color: $light-color;
+          background-color: $dark-color;
+        }
+
+        &:active {
+          color: $dark-color;
+          background-color: $light-color;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .result-table {
+    overflow: scroll;
+    margin-right: 30px;
+  }
+}
