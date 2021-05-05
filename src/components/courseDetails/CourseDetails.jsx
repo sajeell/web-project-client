@@ -1,7 +1,31 @@
+import { Fragment } from "react"
+import { useQuery } from 'urql'
 import { Link } from 'react-router-dom'
 import './CourseDetails.scss'
 
+const QuizQuery = `
+  query {
+    quizDetails(id: ${localStorage.getItem('quizId')}) {
+      id
+      title
+      author
+      price
+      pre_req
+      benefits
+    }
+  }
+`
+
 export default function CourseDetails() {
+  const [result, reexecuteQuery] = useQuery({
+    query: QuizQuery,
+  })
+
+  const { data, fetching, error } = result
+
+  if (fetching) return <p>Loading...</p>
+  if (error) return <p>Oh no... {error.message}</p>
+
   return (
     <div className='course-details-wrapper'>
       <div className='breadcrumb'>
@@ -12,47 +36,44 @@ export default function CourseDetails() {
         <span className='breadcrumb-item'>Course Details</span>
       </div>
       <div className='course-detail-wrapper'>
-        <div className='course-detail'>
-          <div className='course-detail-row'>
-            <div className='course-detail-row-heading'>Title</div>
-            <div className='course-detail-row-content'>
-              Data Structures & Algorithm
+        <Fragment>
+          {data.quizDetails.map((quiz) => (
+            <div className='course-detail'>
+              <div className='course-detail-row'>
+                <div className='course-detail-row-heading'>Title</div>
+                <div className='course-detail-row-content'>
+                  {quiz.title}
+                </div>
+              </div>
+              <div className='course-detail-row'>
+                <div className='course-detail-row-heading'>Cost</div>
+                <div className='course-detail-row-content'>{quiz.price}$ USD</div>
+              </div>
+              <div className='course-detail-row'>
+                <div className='course-detail-row-heading'>Author</div>
+                <div className='course-detail-row-content'>{quiz.author}</div>
+              </div>
+              <div className='course-detail-row'>
+                <div className='course-detail-row-heading'>Prerequisites</div>
+                <div className='course-detail-row-content'>
+                  {quiz.pre_req}
+                </div>
+              </div>
+              <div className='course-detail-row'>
+                <div className='course-detail-row-heading'>Benefits</div>
+                <div className='course-detail-row-content'>
+                  {quiz.benefits}
+                </div>
+              </div>
+              <div className='course-detail-row'>
+                <div className='course-detail-row-heading'>Time to attempt</div>
+                <div className='course-detail-row-content'>180 Minutes</div>
+              </div>
             </div>
-          </div>
-          <div className='course-detail-row'>
-            <div className='course-detail-row-heading'>Cost</div>
-            <div className='course-detail-row-content'>50$ USD</div>
-          </div>
-          <div className='course-detail-row'>
-            <div className='course-detail-row-heading'>Author</div>
-            <div className='course-detail-row-content'>Dr. David Gustavo</div>
-          </div>
-          <div className='course-detail-row'>
-            <div className='course-detail-row-heading'>Prerequisites</div>
-            <div className='course-detail-row-content'>
-              Knowledge of OOP, Coding
-            </div>
-          </div>
-          <div className='course-detail-row'>
-            <div className='course-detail-row-heading'>Benefits</div>
-            <div className='course-detail-row-content'>
-              You may be new to Data Structure or you have already Studied and
-              Implemented Data Structures but still you feel you need to learn
-              more about Data Structure in detail so that it helps you solve
-              challenging problems and used Data Structure efficiently. This 53
-              hours of course covers each topic in greater details, every topic
-              is covered on Whiteboard which will improve your Problem Solving
-              and Analytical Skills. Every Data Structure is discussed, analysed
-              and implemented with a Practical line-by-line coding.
-            </div>
-          </div>
-          <div className='course-detail-row'>
-            <div className='course-detail-row-heading'>Time to attempt</div>
-            <div className='course-detail-row-content'>180 Minutes</div>
-          </div>
-        </div>
+          ))}
+        </Fragment>
         <div className='course-footage'>
-          <div className='course-footage-row'>EXAMINER</div>
+          <div className='course-footage-row'>DEMO</div>
           <div className='course-footage-row'>
             <video width='300' height='200' controls>
               <source

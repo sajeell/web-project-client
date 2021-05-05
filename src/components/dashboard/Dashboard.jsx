@@ -1,7 +1,29 @@
-import { Link } from 'react-router-dom'
+import { Fragment } from "react"
+import { useQuery } from 'urql'
+
 import './Dashboard.scss'
 
+const QuizQuery = `
+  query {
+    quiz {
+      id
+      title
+      author
+      price
+    }
+  }
+`
+
 export default function Dashboard() {
+  const [result, reexecuteQuery] = useQuery({
+    query: QuizQuery,
+  })
+
+  const { data, fetching, error } = result
+
+  if (fetching) return <p>Loading...</p>
+  if (error) return <p>Oh no... {error.message}</p>
+
   return (
     <div className='dashboard-wrapper'>
       <div className='breadcrumb'>
@@ -17,63 +39,24 @@ export default function Dashboard() {
           <span>Trending Exams</span>
         </div>
         <div className='dashboard-exams-boxes'>
-          <Link to='/course-details'>
-            <div className='dashboard-exam-box'>
-              <div className='dashboard-exam-box-item'>
-                <span>Data Structures & Algorithm</span>
-              </div>
-              <div className='dashboard-exam-box-item'>
-                <span>By Dr. David Gustavo</span>
-              </div>
-              <div className='dashboard-exam-box-item'>
-                <span>50/- USD</span>
-              </div>
-            </div>
-          </Link>
-          <div className='dashboard-exam-box'>
-            <div className='dashboard-exam-box-item'>
-              <span>Data Structures & Algorithm</span>
-            </div>
-            <div className='dashboard-exam-box-item'>
-              <span>By Dr. David Gustavo</span>
-            </div>
-            <div className='dashboard-exam-box-item'>
-              <span>50/- USD</span>
-            </div>
-          </div>
-          <div className='dashboard-exam-box'>
-            <div className='dashboard-exam-box-item'>
-              <span>Data Structures & Algorithm</span>
-            </div>
-            <div className='dashboard-exam-box-item'>
-              <span>By Dr. David Gustavo</span>
-            </div>
-            <div className='dashboard-exam-box-item'>
-              <span>50/- USD</span>
-            </div>
-          </div>
-          <div className='dashboard-exam-box'>
-            <div className='dashboard-exam-box-item'>
-              <span>Data Structures & Algorithm</span>
-            </div>
-            <div className='dashboard-exam-box-item'>
-              <span>By Dr. David Gustavo</span>
-            </div>
-            <div className='dashboard-exam-box-item'>
-              <span>50/- USD</span>
-            </div>
-          </div>
-          <div className='dashboard-exam-box'>
-            <div className='dashboard-exam-box-item'>
-              <span>Data Structures & Algorithm</span>
-            </div>
-            <div className='dashboard-exam-box-item'>
-              <span>By Dr. David Gustavo</span>
-            </div>
-            <div className='dashboard-exam-box-item'>
-              <span>50/- USD</span>
-            </div>
-          </div>
+            {data.quiz.map(quiz => (
+              <Fragment key={quiz.id}>
+                <div className='dashboard-exam-box' onClick={() => {
+                  localStorage.setItem("quizId", quiz.id)
+                  window.open('/course-details')
+                }}>
+                  <div className='dashboard-exam-box-item'>
+                    <span>{quiz.title}</span>
+                  </div>
+                  <div className='dashboard-exam-box-item'>
+                    <span>By {quiz.author}</span>
+                  </div>
+                  <div className='dashboard-exam-box-item'>
+                    <span>{quiz.price}/- USD</span>
+                  </div>
+                </div>
+              </Fragment>
+            ))}
         </div>
       </div>
     </div>
