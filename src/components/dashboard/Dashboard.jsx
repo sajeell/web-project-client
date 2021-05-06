@@ -1,4 +1,4 @@
-import { Fragment } from "react"
+import { Fragment } from 'react'
 import { useQuery } from 'urql'
 
 import './Dashboard.scss'
@@ -39,24 +39,32 @@ export default function Dashboard() {
           <span>Trending Exams</span>
         </div>
         <div className='dashboard-exams-boxes'>
-            {data.quiz.map(quiz => (
-              <Fragment key={quiz.id}>
-                <div className='dashboard-exam-box' onClick={() => {
-                  localStorage.setItem("quizId", quiz.id)
+          {data.quiz.map((quiz) => (
+            <Fragment key={quiz.id}>
+              <div
+                className='dashboard-exam-box'
+                onClick={() => {
+                  localStorage.setItem('quizId', quiz.id)
+                  localStorage.setItem('quizTotalMarks', quiz.total_marks)
+                  localStorage.setItem(
+                    'quizTotalQuestions',
+                    quiz.total_questions,
+                  )
                   window.open('/course-details')
-                }}>
-                  <div className='dashboard-exam-box-item'>
-                    <span>{quiz.title}</span>
-                  </div>
-                  <div className='dashboard-exam-box-item'>
-                    <span>By {quiz.author}</span>
-                  </div>
-                  <div className='dashboard-exam-box-item'>
-                    <span>{quiz.price}/- USD</span>
-                  </div>
+                }}
+              >
+                <div className='dashboard-exam-box-item'>
+                  <span>{quiz.title}</span>
                 </div>
-              </Fragment>
-            ))}
+                <div className='dashboard-exam-box-item'>
+                  <span>By {quiz.author}</span>
+                </div>
+                <div className='dashboard-exam-box-item'>
+                  <span>{quiz.price}/- USD</span>
+                </div>
+              </div>
+            </Fragment>
+          ))}
         </div>
       </div>
     </div>

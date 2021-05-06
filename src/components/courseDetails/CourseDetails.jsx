@@ -1,4 +1,4 @@
-import { Fragment } from "react"
+import { Fragment } from 'react'
 import { useQuery } from 'urql'
 import { Link } from 'react-router-dom'
 import './CourseDetails.scss'
@@ -41,13 +41,13 @@ export default function CourseDetails() {
             <div className='course-detail'>
               <div className='course-detail-row'>
                 <div className='course-detail-row-heading'>Title</div>
-                <div className='course-detail-row-content'>
-                  {quiz.title}
-                </div>
+                <div className='course-detail-row-content'>{quiz.title}</div>
               </div>
               <div className='course-detail-row'>
                 <div className='course-detail-row-heading'>Cost</div>
-                <div className='course-detail-row-content'>{quiz.price}$ USD</div>
+                <div className='course-detail-row-content'>
+                  {quiz.price}$ USD
+                </div>
               </div>
               <div className='course-detail-row'>
                 <div className='course-detail-row-heading'>Author</div>
@@ -55,15 +55,11 @@ export default function CourseDetails() {
               </div>
               <div className='course-detail-row'>
                 <div className='course-detail-row-heading'>Prerequisites</div>
-                <div className='course-detail-row-content'>
-                  {quiz.pre_req}
-                </div>
+                <div className='course-detail-row-content'>{quiz.pre_req}</div>
               </div>
               <div className='course-detail-row'>
                 <div className='course-detail-row-heading'>Benefits</div>
-                <div className='course-detail-row-content'>
-                  {quiz.benefits}
-                </div>
+                <div className='course-detail-row-content'>{quiz.benefits}</div>
               </div>
               <div className='course-detail-row'>
                 <div className='course-detail-row-heading'>Time to attempt</div>
