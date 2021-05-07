@@ -10,6 +10,8 @@ const QuizQuery = `
       title
       author
       price
+      total_questions
+      total_marks
     }
   }
 `
@@ -50,6 +52,9 @@ export default function Dashboard() {
                     'quizTotalQuestions',
                     quiz.total_questions,
                   )
+                  localStorage.setItem('quizTitle', quiz.title)
+                  localStorage.setItem('quizAuthor', quiz.author)
+                  window.close()
                   window.open('/course-details')
                 }}
               >
