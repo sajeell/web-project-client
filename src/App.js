@@ -12,11 +12,14 @@ import Result from "./components/result/Result"
 import SignIn from "./components/signIn/SignIn"
 import SignUp from "./components/signUp/SignUp"
 
-import * as firebase from "firebase/app";
+import { firebase } from '@firebase/app'
 import {
   FirebaseAuthProvider,
   FirebaseAuthConsumer
 } from "@react-firebase/auth"
+
+// These imports load individual services into the firebase namespace.
+import 'firebase/auth';
 
 
 function App() {
@@ -30,22 +33,42 @@ function App() {
     measurementId: "G-K89DLNRH69"
   }
 
-  // if (!firebase.apps.length) {
-  //   firebase.initializeApp(firebaseConfig)
-  // } else {
-  //   firebase.app()
-  // }
-
   return (
     <FirebaseAuthProvider {...firebaseConfig} firebase={firebase}>
       <div className="App">
         <Router>
           <Switch>
             <Route path="/signin">
-              <SignIn />
+              <FirebaseAuthConsumer>
+                {({ isSignedIn }) => {
+                  if (isSignedIn === true) {
+                    return (
+                      <div>
+                        <Header />
+                        <Dashboard />
+                      </div>
+                    )
+                  } else {
+                    return <SignIn />
+                  }
+                }}
+              </FirebaseAuthConsumer>
             </Route>
             <Route path="/signup">
-              <SignUp />
+              <FirebaseAuthConsumer>
+                {({ isSignedIn }) => {
+                  if (isSignedIn === true) {
+                    return (
+                      <div>
+                        <Header />
+                        <Dashboard />
+                      </div>
+                    )
+                  } else {
+                    return <SignUp />
+                  }
+                }}
+              </FirebaseAuthConsumer>
             </Route>
             <Route path="/course-details">
               <FirebaseAuthConsumer>
@@ -58,7 +81,7 @@ function App() {
                       </div>
                     )
                   } else {
-                    return "Not signed in"
+                    return <SignIn />
                   }
                 }}
               </FirebaseAuthConsumer>
@@ -74,7 +97,7 @@ function App() {
                       </div>
                     )
                   } else {
-                    return "Not signed in"
+                    return <SignIn />
                   }
                 }}
               </FirebaseAuthConsumer>
@@ -89,7 +112,7 @@ function App() {
                       </div>
                     )
                   } else {
-                    return "Not signed in"
+                    return <SignIn />
                   }
                 }}
               </FirebaseAuthConsumer>
@@ -105,7 +128,7 @@ function App() {
                       </div>
                     )
                   } else {
-                    return "Not signed in"
+                    return <SignIn />
                   }
                 }}
               </FirebaseAuthConsumer>
@@ -120,7 +143,7 @@ function App() {
                       </div>
                     )
                   } else {
-                    return "Not signed in"
+                    return <SignIn />
                   }
                 }}
               </FirebaseAuthConsumer>
@@ -136,7 +159,7 @@ function App() {
                       </div>
                     )
                   } else {
-                    return "Not signed in"
+                    return <SignIn />
                   }
                 }}
               </FirebaseAuthConsumer>

@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Header.scss'
+import { firebase } from '@firebase/app'
+
+// These imports load individual services into the firebase namespace.
+import 'firebase/auth'
 
 export default function Header() {
   const [isMobile, setIsMobile] = useState(false)
@@ -55,9 +59,9 @@ export default function Header() {
               <span>HELP</span>
             </div>
             <div className='header-menu-item'>
-              <Link to='/signin'>
-                <span>LOG OUT</span>
-              </Link>
+              <span onClick={() => {
+                firebase.auth().signOut()
+              }}>LOG OUT</span>
             </div>
           </div>
         </div>
@@ -77,9 +81,9 @@ export default function Header() {
               <li className='header-item'>RESULT</li>
             </Link>
             <li className='header-item'>HELP</li>
-            <Link to='/signin'>
-              <li className='header-item'>LOGOUT</li>
-            </Link>
+            <li className='header-item' onClick={() => {
+              firebase.auth().signOut()
+            }}>LOGOUT</li>
           </ul>
         </div>
       </div>

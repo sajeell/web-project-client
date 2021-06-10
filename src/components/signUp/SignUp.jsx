@@ -1,10 +1,36 @@
+import { useState } from "react"
 import { Link } from 'react-router-dom'
 import './SignUp.scss'
+import { firebase } from '@firebase/app'
+
+// These imports load individual services into the firebase namespace.
+import 'firebase/auth'
 
 import FormBG from '../../static/images/form-bg.png'
 
 export default function SignUp() {
   document.title = 'Sign Up'
+
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const signUp = () => {
+    try {
+      firebase.auth().createUserWithEmailAndPassword(email, password).then((userCredential) => {
+        // Signed in
+        var user = userCredential.user;
+        // ...
+        console.log(user)
+      })
+        .catch((error) => {
+          alert(error.message)
+        })
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+
   return (
     <div className='signup-wrapper'>
       <div className='signup-bg-image'>
@@ -31,6 +57,10 @@ export default function SignUp() {
               type='email'
               name='email'
               id='email'
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value)
+              }}
               placeholder='Email Address'
             />
           </div>
@@ -39,6 +69,10 @@ export default function SignUp() {
               type='password'
               name='password'
               id='password'
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value)
+              }}
               placeholder='Password'
             />
           </div>
@@ -48,6 +82,7 @@ export default function SignUp() {
               name='submit-btn'
               id='submit-btn'
               value='Sign Up'
+              onClick={signUp}
             />
           </div>
           <div className='signup-row-7'>
