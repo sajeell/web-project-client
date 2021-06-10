@@ -64,15 +64,13 @@ export default function SignIn() {
           </div>
 
           <div className='signin-row-4'>
-            <Link to='/'>
-              <input
-                type='submit'
-                name='submit-btn'
-                id='submit-btn'
-                value='Sign In'
-                onClick={signIn}
-              />
-            </Link>
+            <input
+              type='submit'
+              name='submit-btn'
+              id='submit-btn'
+              value='Sign In'
+              onClick={signIn}
+            />
           </div>
 
           <div className='signin-row-5'>
