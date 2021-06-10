@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-firebase/auth": "^0.2.10",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "firebase": "^8.6.5",
     "graphql": "^15.5.0",
     "html2canvas": "^1.0.0-rc.7",
     "jspdf": "^2.3.1",
@@ -24,7 +26,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "format": "prettier --write --single-quote --semi false --list-different --print-width 80 src/**/*.jsx"
+    "format:components": "prettier --write --single-quote --semi false --list-different --print-width 80 src/**/*.jsx",
+    "format": "prettier --write --single-quote --semi false --list-different --print-width 80 ./App.js"
   },
   "eslintConfig": {
     "extends": [

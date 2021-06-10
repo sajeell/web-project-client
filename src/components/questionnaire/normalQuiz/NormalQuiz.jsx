@@ -166,8 +166,7 @@ export default function NormalQuiz() {
                 e.persist()
                 if (choiceIsTrue) {
                   localStorage.setItem('marksObtained', marksObtained + 1)
-                }
-                else {
+                } else {
                   localStorage.setItem('marksObtained', marksObtained)
                 }
                 setQuestionId(questionId + 1)
@@ -271,10 +270,15 @@ export default function NormalQuiz() {
               value='Submit'
               onClick={() => {
                 if (choiceIsTrue) {
-                  localStorage.setItem('marksObtained', parseInt(localStorage.getItem('marksObtained')) + 1)
-                }
-                else {
-                  localStorage.setItem('marksObtained', parseInt(localStorage.getItem('marksObtained')))
+                  localStorage.setItem(
+                    'marksObtained',
+                    parseInt(localStorage.getItem('marksObtained')) + 1,
+                  )
+                } else {
+                  localStorage.setItem(
+                    'marksObtained',
+                    parseInt(localStorage.getItem('marksObtained')),
+                  )
                 }
                 const variables = {
                   userId: 1,
