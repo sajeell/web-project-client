@@ -1,8 +1,8 @@
-import { useState } from "react"
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { firebase } from '@firebase/app'
 // These imports load individual services into the firebase namespace.
-import 'firebase/auth';
+import 'firebase/auth'
 
 import './SignIn.scss'
 
@@ -11,18 +11,21 @@ import FormBG from '../../static/images/form-bg.png'
 export default function SignIn() {
   document.title = 'Sign In'
 
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   const signIn = () => {
-    firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
-      // Signed in
-      var user = userCredential.user;
-      // ...
-    })
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Signed in
+        var user = userCredential.user
+        // ...
+      })
       .catch((error) => {
         alert(error.message)
-      });
+      })
   }
 
   return (

@@ -59,9 +59,13 @@ export default function Header() {
               <span>HELP</span>
             </div>
             <div className='header-menu-item'>
-              <span onClick={() => {
-                firebase.auth().signOut()
-              }}>LOG OUT</span>
+              <span
+                onClick={() => {
+                  firebase.auth().signOut()
+                }}
+              >
+                LOG OUT
+              </span>
             </div>
           </div>
         </div>
@@ -81,9 +85,14 @@ export default function Header() {
               <li className='header-item'>RESULT</li>
             </Link>
             <li className='header-item'>HELP</li>
-            <li className='header-item' onClick={() => {
-              firebase.auth().signOut()
-            }}>LOGOUT</li>
+            <li
+              className='header-item'
+              onClick={() => {
+                firebase.auth().signOut()
+              }}
+            >
+              LOGOUT
+            </li>
           </ul>
         </div>
       </div>

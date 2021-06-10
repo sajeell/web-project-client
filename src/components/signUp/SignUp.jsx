@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './SignUp.scss'
 import { firebase } from '@firebase/app'
@@ -11,17 +11,20 @@ import FormBG from '../../static/images/form-bg.png'
 export default function SignUp() {
   document.title = 'Sign Up'
 
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   const signUp = () => {
     try {
-      firebase.auth().createUserWithEmailAndPassword(email, password).then((userCredential) => {
-        // Signed in
-        var user = userCredential.user;
-        // ...
-        console.log(user)
-      })
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          // Signed in
+          var user = userCredential.user
+          // ...
+          console.log(user)
+        })
         .catch((error) => {
           alert(error.message)
         })
@@ -29,7 +32,6 @@ export default function SignUp() {
       console.log(error.message)
     }
   }
-
 
   return (
     <div className='signup-wrapper'>
