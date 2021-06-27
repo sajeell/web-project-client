@@ -48,7 +48,7 @@ export default function NormalQuiz() {
   `
 
   const uploadResult = `
-      mutation ($userId: Int!, $quizTitle: String!, $author: String!, $marksObtained: Int!, $totalMarks: Int!) {
+      mutation ($userId: String, $quizTitle: String, $author: String, $marksObtained: Int, $totalMarks: Int) {
         uploadResult (data: {userId: $userId, quizTitle: $quizTitle, author: $author, marksObtained: $marksObtained, totalMarks: $totalMarks}) {
           userId
           quizTitle

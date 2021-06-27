@@ -14,7 +14,8 @@ export default function SignIn() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const signIn = () => {
+  const signIn = (e) => {
+    e.preventDefault()
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
