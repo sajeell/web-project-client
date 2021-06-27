@@ -46,7 +46,7 @@ export default function Certificate() {
           <br />
           <br />
           <span style={{ fontSize: 22 }}>
-            <b>Sajeel Ahmad Hassan</b>
+            <b>{localStorage.getItem('user')}</b>
           </span>
           <br />
           <br />
@@ -55,11 +55,11 @@ export default function Certificate() {
           </span>{' '}
           <br />
           <br />
-          <span style={{ fontSize: 25 }}>Data Structure & Algorithms</span>{' '}
+          <span style={{ fontSize: 25 }}>{localStorage.getItem('quizTitle')}</span>{' '}
           <br />
           <br />
           <span style={{ fontSize: 15 }}>
-            with score of <b>56%</b>
+            with score of <b>{localStorage.getItem('percentage')}%</b>
           </span>{' '}
           <br />
           <br />
