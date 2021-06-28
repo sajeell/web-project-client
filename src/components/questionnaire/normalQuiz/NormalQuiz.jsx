@@ -2,6 +2,8 @@ import { Fragment, useState } from 'react'
 import { useQuery, useMutation } from 'urql'
 import { ToastContainer, toast } from 'react-toastify'
 import { Link } from 'react-router-dom'
+import { firebase } from '@firebase/app'
+
 import 'react-toastify/dist/ReactToastify.css'
 import './NormalQuiz.scss'
 
@@ -49,13 +51,7 @@ export default function NormalQuiz() {
 
   const uploadResult = `
       mutation ($userId: String, $quizTitle: String, $author: String, $marksObtained: Int, $totalMarks: Int) {
-        uploadResult (data: {userId: $userId, quizTitle: $quizTitle, author: $author, marksObtained: $marksObtained, totalMarks: $totalMarks}) {
-          userId
-          quizTitle
-          author
-          marksObtained
-          totalMarks
-        }
+        uploadResult (data: {userId: $userId, quizTitle: $quizTitle, author: $author, marksObtained: $marksObtained, totalMarks: $totalMarks})
       }
   `
 
@@ -81,7 +77,7 @@ export default function NormalQuiz() {
         </div>
         <div className='normal-quiz-content'>
           <div className='normal-quiz-row'>
-            <span>Question {questionId}/4</span>
+            <span>Question {questionId}/{quizTotalQuestions}</span>
           </div>
           <Fragment key={data.question.id}>
             <div className='normal-quiz-row'>
@@ -187,7 +183,7 @@ export default function NormalQuiz() {
         </div>
         <div className='normal-quiz-content'>
           <div className='normal-quiz-row'>
-            <span>Question {questionId}/4</span>
+            <span>Question {questionId}/{quizTotalQuestions}</span>
           </div>
           <Fragment key={data.question.id}>
             <div className='normal-quiz-row'>
@@ -268,7 +264,9 @@ export default function NormalQuiz() {
             <input
               type='submit'
               value='Submit'
-              onClick={() => {
+              onClick={(e) => {
+                // e.preventDefault()
+                e.persist()
                 if (choiceIsTrue) {
                   localStorage.setItem(
                     'marksObtained',
@@ -281,7 +279,7 @@ export default function NormalQuiz() {
                   )
                 }
                 const variables = {
-                  userId: 1,
+                  userId: firebase.auth().currentUser.uid,
                   quizTitle: localStorage.getItem('quizTitle'),
                   author: localStorage.getItem('quizAuthor'),
                   marksObtained: parseInt(
@@ -290,16 +288,17 @@ export default function NormalQuiz() {
                   totalMarks: parseInt(quizTotalMarks),
                 }
                 uploadResultMutation(variables).then((result) => {
+                  console.log(result)
                   toast.success('Submitted Successfully')
 
-                  localStorage.removeItem('marksObtained')
-                  localStorage.removeItem('quizTitle')
-                  localStorage.removeItem('quizId')
-                  localStorage.removeItem('quizAuthor')
-                  localStorage.removeItem('quizTotalMarks')
-                  localStorage.removeItem('quizTotalQuestions')
-                  window.close()
-                  window.open('/')
+                  // localStorage.removeItem('marksObtained')
+                  // localStorage.removeItem('quizTitle')
+                  // localStorage.removeItem('quizId')
+                  // localStorage.removeItem('quizAuthor')
+                  // localStorage.removeItem('quizTotalMarks')
+                  // localStorage.removeItem('quizTotalQuestions')
+                  // window.close()
+                  // window.open('/')
                 })
               }}
             />
